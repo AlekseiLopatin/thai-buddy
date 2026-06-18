@@ -38,6 +38,29 @@ export const CONSONANTS: Letter[] = [
   { id: "c-s", char: "ส", name: "sor sǔua", sound: "s", hint: "like 's' in sun", exampleThai: "เสือ", exampleRoman: "sǔua", exampleEn: "tiger" },
   { id: "c-h", char: "ห", name: "hor hìip", sound: "h", hint: "like 'h' in hat", exampleThai: "หีบ", exampleRoman: "hìip", exampleEn: "box" },
   { id: "c-o", char: "อ", name: "or àang", sound: "ʔ / vowel carrier", hint: "silent holder for vowels", exampleThai: "อ่าง", exampleRoman: "àang", exampleEn: "basin" },
+  // ----- the remaining consonants (less common; some appear mostly in formal/Pali words) -----
+  { id: "c-kh3", char: "ฆ", name: "khaaw rá-khang", sound: "k", hint: "like 'k' in kite", exampleThai: "ระฆัง", exampleRoman: "rá-khang", exampleEn: "bell" },
+  { id: "c-ch2", char: "ฉ", name: "chǒr chìng", sound: "ch", hint: "like 'ch' in chair", exampleThai: "ฉิ่ง", exampleRoman: "chìng", exampleEn: "small cymbals" },
+  { id: "c-s2", char: "ซ", name: "sor sôo", sound: "s", hint: "like 's' in sun", exampleThai: "โซ่", exampleRoman: "sôo", exampleEn: "chain" },
+  { id: "c-ch3", char: "ฌ", name: "chor cher", sound: "ch", hint: "like 'ch' in chair (rare)", exampleThai: "เฌอ", exampleRoman: "cher", exampleEn: "tree" },
+  { id: "c-y2", char: "ญ", name: "yor yǐng", sound: "y", hint: "like 'y' in yes", exampleThai: "หญิง", exampleRoman: "yǐng", exampleEn: "woman" },
+  { id: "c-d2", char: "ฎ", name: "dor chá-daa", sound: "d", hint: "like 'd' in dog", exampleThai: "ชฎา", exampleRoman: "chá-daa", exampleEn: "headdress" },
+  { id: "c-dt2", char: "ฏ", name: "dtor bpà-dtàk", sound: "dt", hint: "like 't' in stop", exampleThai: "ปฏัก", exampleRoman: "bpà-dtàk", exampleEn: "goad" },
+  { id: "c-th2", char: "ฐ", name: "thǒr thǎan", sound: "t", hint: "like 't' in top", exampleThai: "ฐาน", exampleRoman: "thǎan", exampleEn: "base" },
+  { id: "c-th3", char: "ฑ", name: "thor monthoo", sound: "t", hint: "like 't' in top (rare)", exampleThai: "มณโฑ", exampleRoman: "monthoo", exampleEn: "Montho (name)" },
+  { id: "c-th4", char: "ฒ", name: "thor phûu-thâo", sound: "t", hint: "like 't' in top", exampleThai: "ผู้เฒ่า", exampleRoman: "phûu-thâo", exampleEn: "elder" },
+  { id: "c-n2", char: "ณ", name: "nor neen", sound: "n", hint: "like 'n' in no", exampleThai: "เณร", exampleRoman: "neen", exampleEn: "novice monk" },
+  { id: "c-th5", char: "ถ", name: "thǒr thǔng", sound: "t", hint: "like 't' in top", exampleThai: "ถุง", exampleRoman: "thǔng", exampleEn: "bag" },
+  { id: "c-th6", char: "ธ", name: "thor thong", sound: "t", hint: "like 't' in top", exampleThai: "ธง", exampleRoman: "thong", exampleEn: "flag" },
+  { id: "c-ph2", char: "ผ", name: "phǒr phûeng", sound: "p", hint: "like 'p' in pan", exampleThai: "ผึ้ง", exampleRoman: "phûeng", exampleEn: "bee" },
+  { id: "c-f2", char: "ฝ", name: "fǒr fǎa", sound: "f", hint: "like 'f' in fan", exampleThai: "ฝา", exampleRoman: "fǎa", exampleEn: "lid" },
+  { id: "c-ph3", char: "ภ", name: "phor sǎm-phao", sound: "p", hint: "like 'p' in pan", exampleThai: "สำเภา", exampleRoman: "sǎm-phao", exampleEn: "sailing ship" },
+  { id: "c-s3", char: "ศ", name: "sǒr sǎa-laa", sound: "s", hint: "like 's' in sun", exampleThai: "ศาลา", exampleRoman: "sǎa-laa", exampleEn: "pavilion" },
+  { id: "c-s4", char: "ษ", name: "sǒr reu-sǐi", sound: "s", hint: "like 's' in sun", exampleThai: "ฤๅษี", exampleRoman: "reu-sǐi", exampleEn: "hermit" },
+  { id: "c-l2", char: "ฬ", name: "lor jù-laa", sound: "l", hint: "like 'l' in lion", exampleThai: "จุฬา", exampleRoman: "jù-laa", exampleEn: "kite" },
+  { id: "c-h2", char: "ฮ", name: "hor nók-hûuk", sound: "h", hint: "like 'h' in hat", exampleThai: "นกฮูก", exampleRoman: "nók-hûuk", exampleEn: "owl" },
+  { id: "c-kh-ob1", char: "ฃ", name: "khǎaw khùat", sound: "k", hint: "obsolete — no longer used", exampleThai: "ขวด", exampleRoman: "khùat", exampleEn: "bottle" },
+  { id: "c-kh-ob2", char: "ฅ", name: "khaaw khon", sound: "k", hint: "obsolete — no longer used", exampleThai: "คน", exampleRoman: "khon", exampleEn: "person" },
 ];
 
 export const VOWELS: Letter[] = [
@@ -51,6 +74,13 @@ export const VOWELS: Letter[] = [
   { id: "v-ae", char: "แอ", name: "sàra ae", sound: "ae", hint: "like 'a' in cat", exampleThai: "แกะ", exampleRoman: "gàe", exampleEn: "sheep" },
   { id: "v-o", char: "โอ", name: "sàra o", sound: "oh (long)", hint: "like 'o' in go", exampleThai: "โต", exampleRoman: "dtoo", exampleEn: "big" },
   { id: "v-aw", char: "ออ", name: "sàra aaw", sound: "aw (long)", hint: "like 'aw' in saw", exampleThai: "พอ", exampleRoman: "phaaw", exampleEn: "enough" },
+  { id: "v-eu", char: "อึ", name: "sàra ue", sound: "ue (short)", hint: "'oo' said with unrounded lips", exampleThai: "ขึ้น", exampleRoman: "khûen", exampleEn: "to go up" },
+  { id: "v-euu", char: "อือ", name: "sàra uee", sound: "uee (long)", hint: "long unrounded 'oo'", exampleThai: "มือ", exampleRoman: "meu", exampleEn: "hand" },
+  { id: "v-ia", char: "เอีย", name: "sàra ia", sound: "ia", hint: "like 'ea' in 'ear'", exampleThai: "เสีย", exampleRoman: "sǐa", exampleEn: "spoiled" },
+  { id: "v-ua", char: "อัว", name: "sàra ua", sound: "ua", hint: "like 'ewe-a' run together", exampleThai: "บัว", exampleRoman: "bua", exampleEn: "lotus" },
+  { id: "v-ai", char: "ไอ", name: "sàra ai", sound: "ai", hint: "like 'eye'", exampleThai: "ไป", exampleRoman: "bpai", exampleEn: "to go" },
+  { id: "v-ao", char: "เอา", name: "sàra ao", sound: "ao", hint: "like 'ow' in 'cow'", exampleThai: "เอา", exampleRoman: "ao", exampleEn: "to want" },
+  { id: "v-am", char: "อำ", name: "sàra am", sound: "am", hint: "like 'um' in 'rum'", exampleThai: "น้ำ", exampleRoman: "nám", exampleEn: "water" },
 ];
 
 export interface Tone {

@@ -87,7 +87,7 @@ export default function LettersPage() {
         {/* Consonants */}
         <Section
           title="Consonants"
-          subtitle={`${CONSONANTS.length} common letters`}
+          subtitle={`all ${CONSONANTS.length} consonants`}
           onPractice={() => setMode("consonants")}
         >
           {CONSONANTS.map((l) => (

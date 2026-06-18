@@ -16,11 +16,11 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-/** Pick `n` distractor words, preferring the same category, then any. */
+/** Pick `n` distractor words, strongly preferring the same category, then any. */
 function distractors(word: Word, n: number): Word[] {
-  const sameCat = WORDS.filter((w) => w.id !== word.id && w.category === word.category);
-  const others = WORDS.filter((w) => w.id !== word.id && w.category !== word.category);
-  return shuffle([...shuffle(sameCat), ...shuffle(others)]).slice(0, n);
+  const sameCat = shuffle(WORDS.filter((w) => w.id !== word.id && w.category === word.category));
+  const others = shuffle(WORDS.filter((w) => w.id !== word.id && w.category !== word.category));
+  return [...sameCat, ...others].slice(0, n);
 }
 
 function options(word: Word): Word[] {
@@ -28,15 +28,23 @@ function options(word: Word): Word[] {
 }
 
 const KINDS: Exercise["kind"][] = ["pickImage", "pickEnglish", "pickThai", "listen"];
+// Phrases/sentences don't map cleanly to a single picture — use recall + listening.
+const PHRASE_KINDS: Exercise["kind"][] = ["pickEnglish", "pickThai", "listen"];
 
 /** Build a varied, shuffled exercise set for a lesson's words. */
 export function buildExercises(words: Word[]): Exercise[] {
   const exercises: Exercise[] = [];
   words.forEach((word, i) => {
-    // First touch of a word: recognize the picture. Second: a rotating kind.
-    exercises.push({ kind: "pickImage", word, options: options(word) });
-    const kind = KINDS[(i + 1) % KINDS.length];
-    exercises.push({ kind, word, options: options(word) } as Exercise);
+    if (word.isPhrase) {
+      // Two distinct recall/listening exercises per phrase.
+      exercises.push({ kind: "pickEnglish", word, options: options(word) });
+      exercises.push({ kind: PHRASE_KINDS[(i % 2) + 1], word, options: options(word) } as Exercise);
+    } else {
+      // First touch of a word: recognize the picture. Second: a rotating kind.
+      exercises.push({ kind: "pickImage", word, options: options(word) });
+      const kind = KINDS[(i + 1) % KINDS.length];
+      exercises.push({ kind, word, options: options(word) } as Exercise);
+    }
   });
   return shuffle(exercises);
 }

@@ -137,6 +137,96 @@ export const WORDS: Word[] = [
   { id: "language", thai: "ภาษา", roman: "phaa-sǎa", en: "language", emoji: "💬", category: "Concepts", level: 5 },
   { id: "book", thai: "หนังสือ", roman: "nǎng-sěu", en: "book", emoji: "📚", category: "Concepts", level: 5 },
   { id: "phone", thai: "โทรศัพท์", roman: "thoo-rá-sàp", en: "phone", emoji: "📱", category: "Concepts", level: 5 },
+
+  // ---------- Level 1 — more greetings & politeness ----------
+  { id: "polite_m", thai: "ครับ", roman: "khráp", en: "polite word (male)", emoji: "🙂", category: "Greetings", level: 1 },
+  { id: "polite_f", thai: "ค่ะ", roman: "khâ", en: "polite word (female)", emoji: "🙂", category: "Greetings", level: 1 },
+  { id: "howareyou", thai: "สบายดีไหม", roman: "sà-baai-dii mǎi", en: "how are you?", emoji: "🙂", category: "Greetings", level: 1, isPhrase: true },
+  { id: "imfine", thai: "สบายดี", roman: "sà-baai-dii", en: "I'm fine", emoji: "😊", category: "Greetings", level: 1 },
+
+  // ---------- Level 1 — Pronouns ----------
+  { id: "i_m", thai: "ผม", roman: "phǒm", en: "I (male)", emoji: "👨", category: "Pronouns", level: 1 },
+  { id: "i_f", thai: "ฉัน", roman: "chǎn", en: "I (female)", emoji: "👩", category: "Pronouns", level: 1 },
+  { id: "you", thai: "คุณ", roman: "khun", en: "you", emoji: "🫵", category: "Pronouns", level: 1 },
+  { id: "heshe", thai: "เขา", roman: "kháo", en: "he / she", emoji: "🧑", category: "Pronouns", level: 1 },
+  { id: "we", thai: "เรา", roman: "rao", en: "we", emoji: "👥", category: "Pronouns", level: 1 },
+
+  // ---------- Level 2 — Time ----------
+  { id: "today", thai: "วันนี้", roman: "wan-níi", en: "today", emoji: "📅", category: "Time", level: 2 },
+  { id: "tomorrow", thai: "พรุ่งนี้", roman: "phrûng-níi", en: "tomorrow", emoji: "⏭️", category: "Time", level: 2 },
+  { id: "yesterday", thai: "เมื่อวาน", roman: "mêua-waan", en: "yesterday", emoji: "⏮️", category: "Time", level: 2 },
+  { id: "morning", thai: "เช้า", roman: "cháo", en: "morning", emoji: "🌅", category: "Time", level: 2 },
+  { id: "afternoon", thai: "บ่าย", roman: "bàai", en: "afternoon", emoji: "🌤️", category: "Time", level: 2 },
+  { id: "evening", thai: "เย็น", roman: "yen", en: "evening", emoji: "🌆", category: "Time", level: 2 },
+  { id: "night", thai: "กลางคืน", roman: "glaang-kheun", en: "night", emoji: "🌙", category: "Time", level: 2 },
+  { id: "day", thai: "วัน", roman: "wan", en: "day", emoji: "☀️", category: "Time", level: 2 },
+  { id: "week", thai: "อาทิตย์", roman: "aa-thít", en: "week", emoji: "🗓️", category: "Time", level: 2 },
+  { id: "month", thai: "เดือน", roman: "deuan", en: "month", emoji: "📆", category: "Time", level: 2 },
+  { id: "year", thai: "ปี", roman: "bpii", en: "year", emoji: "🎉", category: "Time", level: 2 },
+
+  // ---------- Level 2 — Body ----------
+  { id: "eye", thai: "ตา", roman: "dtaa", en: "eye", emoji: "👁️", category: "Body", level: 2 },
+  { id: "ear", thai: "หู", roman: "hǔu", en: "ear", emoji: "👂", category: "Body", level: 2 },
+  { id: "mouth", thai: "ปาก", roman: "bpàak", en: "mouth", emoji: "👄", category: "Body", level: 2 },
+  { id: "nose", thai: "จมูก", roman: "jà-mùuk", en: "nose", emoji: "👃", category: "Body", level: 2 },
+  { id: "hand", thai: "มือ", roman: "meu", en: "hand", emoji: "✋", category: "Body", level: 2 },
+  { id: "foot", thai: "เท้า", roman: "tháo", en: "foot", emoji: "🦶", category: "Body", level: 2 },
+  { id: "head", thai: "หัว", roman: "hǔa", en: "head", emoji: "🧠", category: "Body", level: 2 },
+  { id: "teeth", thai: "ฟัน", roman: "fan", en: "teeth", emoji: "🦷", category: "Body", level: 2 },
+  { id: "heart_body", thai: "หัวใจ", roman: "hǔa-jai", en: "heart", emoji: "❤️", category: "Body", level: 2 },
+
+  // ---------- Level 2 — more food & drink ----------
+  { id: "tea", thai: "ชา", roman: "chaa", en: "tea", emoji: "🍵", category: "Food", level: 2 },
+  { id: "milk", thai: "นม", roman: "nom", en: "milk", emoji: "🥛", category: "Food", level: 2 },
+  { id: "beer", thai: "เบียร์", roman: "bia", en: "beer", emoji: "🍺", category: "Food", level: 2 },
+  { id: "ice", thai: "น้ำแข็ง", roman: "nám-khǎeng", en: "ice", emoji: "🧊", category: "Food", level: 2 },
+
+  // ---------- Level 3 — Restaurant ----------
+  { id: "menu", thai: "เมนู", roman: "mee-nuu", en: "menu", emoji: "📋", category: "Restaurant", level: 3 },
+  { id: "order", thai: "สั่ง", roman: "sàng", en: "to order", emoji: "📝", category: "Restaurant", level: 3 },
+  { id: "spicy", thai: "เผ็ด", roman: "phèt", en: "spicy", emoji: "🌶️", category: "Restaurant", level: 3 },
+  { id: "notspicy", thai: "ไม่เผ็ด", roman: "mâi phèt", en: "not spicy", emoji: "🚫", category: "Restaurant", level: 3 },
+  { id: "hot", thai: "ร้อน", roman: "ráawn", en: "hot", emoji: "🔥", category: "Restaurant", level: 3 },
+  { id: "spoon", thai: "ช้อน", roman: "cháawn", en: "spoon", emoji: "🥄", category: "Restaurant", level: 3 },
+  { id: "fork", thai: "ส้อม", roman: "sâawm", en: "fork", emoji: "🍴", category: "Restaurant", level: 3 },
+  { id: "plate", thai: "จาน", roman: "jaan", en: "plate", emoji: "🍽️", category: "Restaurant", level: 3 },
+  { id: "glass", thai: "แก้ว", roman: "gâaeo", en: "glass", emoji: "🥛", category: "Restaurant", level: 3 },
+  { id: "bill", thai: "เช็คบิล", roman: "chék-bin", en: "the bill", emoji: "🧾", category: "Restaurant", level: 3 },
+
+  // ---------- Level 3 — Directions ----------
+  { id: "left", thai: "ซ้าย", roman: "sáai", en: "left", emoji: "⬅️", category: "Directions", level: 3 },
+  { id: "right", thai: "ขวา", roman: "khwǎa", en: "right", emoji: "➡️", category: "Directions", level: 3 },
+  { id: "straight", thai: "ตรงไป", roman: "dtrong-bpai", en: "go straight", emoji: "⬆️", category: "Directions", level: 3 },
+  { id: "here", thai: "ที่นี่", roman: "thîi-nîi", en: "here", emoji: "📍", category: "Directions", level: 3 },
+  { id: "there", thai: "ที่นั่น", roman: "thîi-nân", en: "there", emoji: "📌", category: "Directions", level: 3 },
+  { id: "near", thai: "ใกล้", roman: "glâi", en: "near", emoji: "📏", category: "Directions", level: 3 },
+  { id: "far", thai: "ไกล", roman: "glai", en: "far", emoji: "🛣️", category: "Directions", level: 3 },
+  { id: "stop", thai: "หยุด", roman: "yùt", en: "stop", emoji: "🛑", category: "Directions", level: 3 },
+
+  // ---------- Level 3 — Counting & classifiers (number + noun + classifier) ----------
+  { id: "cls_people", thai: "คน", roman: "khon", en: "classifier: people", emoji: "🧑", category: "Counting", level: 3 },
+  { id: "cls_animal", thai: "ตัว", roman: "dtua", en: "classifier: animals", emoji: "🐾", category: "Counting", level: 3 },
+  { id: "cls_fruit", thai: "ลูก", roman: "lûuk", en: "classifier: fruit / round things", emoji: "🍎", category: "Counting", level: 3 },
+  { id: "cls_sheet", thai: "ใบ", roman: "bai", en: "classifier: cups, sheets, leaves", emoji: "📄", category: "Counting", level: 3 },
+  { id: "cls_bottle", thai: "ขวด", roman: "khùat", en: "classifier: bottles", emoji: "🍾", category: "Counting", level: 3 },
+  { id: "cls_thing", thai: "อัน", roman: "an", en: "classifier: small things", emoji: "🔹", category: "Counting", level: 3 },
+  { id: "count_water1", thai: "น้ำหนึ่งขวด", roman: "nám nèung khùat", en: "one bottle of water", emoji: "💧", category: "Counting", level: 3, isPhrase: true },
+  { id: "count_beer2", thai: "เบียร์สองขวด", roman: "bia sǎawng khùat", en: "two bottles of beer", emoji: "🍺", category: "Counting", level: 3, isPhrase: true },
+  { id: "count_rice1", thai: "ข้าวหนึ่งจาน", roman: "khâao nèung jaan", en: "one plate of rice", emoji: "🍚", category: "Counting", level: 3, isPhrase: true },
+  { id: "count_coffee2", thai: "กาแฟสองแก้ว", roman: "gaa-faae sǎawng gâaeo", en: "two cups of coffee", emoji: "☕", category: "Counting", level: 3, isPhrase: true },
+  { id: "count_cat3", thai: "แมวสามตัว", roman: "maaeo sǎam dtua", en: "three cats", emoji: "🐱", category: "Counting", level: 3, isPhrase: true },
+
+  // ---------- Level 3 — Essential phrases ----------
+  { id: "ph_howmuch", thai: "ราคาเท่าไหร่", roman: "raa-khaa thâo-rài", en: "how much is it?", emoji: "💰", category: "Phrases", level: 3, isPhrase: true },
+  { id: "ph_nevermind", thai: "ไม่เป็นไร", roman: "mâi bpen rai", en: "no problem / never mind", emoji: "👌", category: "Phrases", level: 3, isPhrase: true },
+  { id: "ph_nounderstand", thai: "ไม่เข้าใจ", roman: "mâi khâo-jai", en: "I don't understand", emoji: "🤷", category: "Phrases", level: 3, isPhrase: true },
+  { id: "ph_again", thai: "พูดอีกครั้งได้ไหม", roman: "phûut ìik khráng dâi mǎi", en: "can you say it again?", emoji: "🔁", category: "Phrases", level: 3, isPhrase: true },
+  { id: "ph_toilet", thai: "ห้องน้ำอยู่ที่ไหน", roman: "hâawng-nám yùu thîi-nǎi", en: "where is the toilet?", emoji: "🚻", category: "Phrases", level: 3, isPhrase: true },
+  { id: "ph_takethis", thai: "เอาอันนี้", roman: "ao an-níi", en: "I'll take this one", emoji: "👉", category: "Phrases", level: 3, isPhrase: true },
+  { id: "ph_verytasty", thai: "อร่อยมาก", roman: "à-ràuy mâak", en: "very delicious", emoji: "😋", category: "Phrases", level: 3, isPhrase: true },
+  { id: "ph_tooexpensive", thai: "แพงไป", roman: "phaaeng bpai", en: "too expensive", emoji: "💸", category: "Phrases", level: 3, isPhrase: true },
+  { id: "ph_discount", thai: "ลดได้ไหม", roman: "lót dâi mǎi", en: "can you give a discount?", emoji: "🪙", category: "Phrases", level: 3, isPhrase: true },
+  { id: "ph_littlethai", thai: "พูดไทยได้นิดหน่อย", roman: "phûut thai dâi nít-nàuy", en: "I speak a little Thai", emoji: "🗣️", category: "Phrases", level: 3, isPhrase: true },
 ];
 
 export const WORD_BY_ID: Record<string, Word> = Object.fromEntries(

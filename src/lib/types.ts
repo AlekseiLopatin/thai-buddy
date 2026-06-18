@@ -16,6 +16,7 @@ export interface Word {
   emoji: string; // the "simple picture" (open-source glyph, not AI-generated)
   category: string;
   level: Level;
+  isPhrase?: boolean; // multi-word phrase/sentence — skip picture-matching, favor recall
 }
 
 export interface Lesson {
