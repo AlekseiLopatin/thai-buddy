@@ -1,0 +1,10 @@
+{
+  "name": "Thai Buddy",
+  "short_name": "ThaiBuddy",
+  "description": "Learn Thai the fun way — gamified lessons with pictures.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#58cc02",
+  "icons": []
+}
