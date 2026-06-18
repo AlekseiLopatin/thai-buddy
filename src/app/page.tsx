@@ -97,6 +97,34 @@ function AuthScreen() {
 
   return (
     <Splash subtitle={mode === "in" ? "Welcome back!" : "Create your account"}>
+      {/* clear Sign in / Create account tabs */}
+      <div className="flex w-full rounded-2xl border-2 border-line p-1">
+        <button
+          onClick={() => {
+            setMode("in");
+            setError(null);
+            setMsg(null);
+          }}
+          className={`flex-1 rounded-xl py-2 text-sm font-extrabold transition ${
+            mode === "in" ? "bg-brand text-white" : "text-muted"
+          }`}
+        >
+          Sign in
+        </button>
+        <button
+          onClick={() => {
+            setMode("up");
+            setError(null);
+            setMsg(null);
+          }}
+          className={`flex-1 rounded-xl py-2 text-sm font-extrabold transition ${
+            mode === "up" ? "bg-brand text-white" : "text-muted"
+          }`}
+        >
+          Create account
+        </button>
+      </div>
+
       <form onSubmit={submit} className="flex w-full flex-col gap-3">
         <input
           type="email"
@@ -127,17 +155,6 @@ function AuthScreen() {
         className="btn-3d w-full rounded-2xl border-line bg-white px-6 py-3 font-bold"
       >
         Continue with Google
-      </button>
-
-      <button
-        onClick={() => {
-          setMode(mode === "in" ? "up" : "in");
-          setError(null);
-          setMsg(null);
-        }}
-        className="text-sm font-bold text-sky"
-      >
-        {mode === "in" ? "New here? Create an account" : "Already have an account? Sign in"}
       </button>
     </Splash>
   );
