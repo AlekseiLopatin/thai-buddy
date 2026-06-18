@@ -84,6 +84,12 @@ function AuthScreen() {
   const [msg, setMsg] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
+  // Surface any error passed back from the OAuth/email callback.
+  useEffect(() => {
+    const e = new URLSearchParams(window.location.search).get("auth_error");
+    if (e) setError(e);
+  }, []);
+
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
