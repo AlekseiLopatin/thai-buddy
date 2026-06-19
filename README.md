@@ -2,7 +2,7 @@
 
 # Thai Buddy 🇹🇭
 
-**Learn Thai the fun way — a gamified, Duolingo-style web app built for expats and beginners.**
+**Learn Thai the fun way — a gamified, inspired by Duolingo web app built for expats and beginners.**
 
 Picture-based vocabulary · placement test · skill tree · spaced repetition · alphabet & tone trainer · accounts & friends.
 
