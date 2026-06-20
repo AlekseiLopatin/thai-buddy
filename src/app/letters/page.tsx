@@ -114,7 +114,7 @@ export default function LettersPage() {
           </div>
           <button
             onClick={() => setMode("tones")}
-            className="btn-3d rounded-xl border-brand-dark bg-brand px-4 py-2 text-sm font-extrabold text-white"
+            className="btn-3d rounded-xl border-brand-dark bg-brand px-4 py-2 text-sm font-extrabold text-on-accent"
           >
             Train
           </button>
@@ -124,7 +124,7 @@ export default function LettersPage() {
             <button
               key={t.id}
               onClick={() => speakThai(t.exampleThai)}
-              className="flex items-center gap-3 rounded-2xl border-2 border-line bg-white px-4 py-3 text-left active:scale-[0.99]"
+              className="flex items-center gap-3 rounded-2xl border-2 border-line bg-surface px-4 py-3 text-left active:scale-[0.99]"
             >
               <span className="font-thai text-3xl font-bold">{t.exampleThai}</span>
               <div className="flex-1">
@@ -163,7 +163,7 @@ function Section({
         </div>
         <button
           onClick={onPractice}
-          className="btn-3d rounded-xl border-brand-dark bg-brand px-4 py-2 text-sm font-extrabold text-white"
+          className="btn-3d rounded-xl border-brand-dark bg-brand px-4 py-2 text-sm font-extrabold text-on-accent"
         >
           Practice
         </button>
@@ -177,7 +177,7 @@ function LetterCard({ l }: { l: Letter }) {
   return (
     <button
       onClick={() => speakThai(l.exampleThai)}
-      className="flex items-center gap-3 rounded-2xl border-2 border-line bg-white px-3 py-2 text-left active:scale-[0.98]"
+      className="flex items-center gap-3 rounded-2xl border-2 border-line bg-surface px-3 py-2 text-left active:scale-[0.98]"
     >
       <span className="font-thai text-3xl font-bold leading-none">{l.char}</span>
       <div className="min-w-0">

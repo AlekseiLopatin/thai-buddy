@@ -40,7 +40,7 @@ export default function Learn() {
 
       <main className="mx-auto w-full max-w-xl flex-1 px-4 py-5">
         {/* daily goal */}
-        <div className="mb-6 rounded-2xl border border-line bg-white p-4">
+        <div className="mb-6 rounded-2xl border border-line bg-surface p-4">
           <div className="mb-2 flex items-center justify-between text-sm font-bold">
             <span>🎯 Daily goal</span>
             <span className="text-muted">
@@ -56,11 +56,10 @@ export default function Learn() {
         {dueCount > 0 && (
           <Link
             href="/review"
-            className="btn-3d mb-6 flex items-center justify-between rounded-2xl border-purple bg-purple px-4 py-3 text-white"
-            style={{ borderColor: "#a855f7" }}
+            className="btn-3d mb-6 flex items-center justify-between rounded-2xl border-brand-dark bg-brand px-4 py-3 text-on-accent"
           >
             <span className="flex items-center gap-2 font-extrabold">🔁 Review</span>
-            <span className="rounded-full bg-white/25 px-3 py-0.5 text-sm font-bold">
+            <span className="rounded-full bg-on-accent/10 px-3 py-0.5 text-sm font-bold">
               {dueCount} word{dueCount > 1 ? "s" : ""} due
             </span>
           </Link>
@@ -68,14 +67,16 @@ export default function Learn() {
 
         {units.map((unit) => (
           <section key={unit.id} className="mb-8">
-            <div
-              className="mb-4 flex items-center gap-3 rounded-2xl px-4 py-3 text-white"
-              style={{ backgroundColor: unit.color }}
-            >
-              <span className="text-2xl">{unit.lessons[0]?.emoji}</span>
+            <div className="mb-4 flex items-center gap-3 rounded-2xl border border-line bg-elevated px-4 py-3">
+              <span
+                className="flex h-10 w-10 items-center justify-center rounded-lg text-2xl"
+                style={{ backgroundColor: unit.color }}
+              >
+                {unit.lessons[0]?.emoji}
+              </span>
               <div>
-                <p className="text-xs font-semibold uppercase opacity-80">Level {unit.level}</p>
-                <h2 className="text-lg font-extrabold">{unit.title}</h2>
+                <p className="text-xs font-semibold uppercase text-muted">Level {unit.level}</p>
+                <h2 className="text-lg font-extrabold text-ink">{unit.title}</h2>
               </div>
             </div>
 
@@ -127,13 +128,13 @@ function LessonNode({
   color: string;
   label: string;
 }) {
-  const ring = done ? "#ffc800" : unlocked ? color : "#e5e5e5";
+  const ring = done ? "#d4a44b" : unlocked ? color : "#3a3020";
   const content = (
     <div className="flex flex-col items-center gap-1">
       <div
         className="btn-3d flex h-20 w-20 items-center justify-center rounded-full text-4xl shadow-sm"
         style={{
-          backgroundColor: unlocked ? "white" : "#f3f3f3",
+          backgroundColor: unlocked ? "#201c18" : "#1a1613",
           border: `5px solid ${ring}`,
           borderBottomWidth: 8,
         }}

@@ -112,7 +112,7 @@ function AuthScreen() {
             setMsg(null);
           }}
           className={`flex-1 rounded-xl py-2 text-sm font-extrabold transition ${
-            mode === "in" ? "bg-brand text-white" : "text-muted"
+            mode === "in" ? "bg-brand text-on-accent" : "text-muted"
           }`}
         >
           Sign in
@@ -124,7 +124,7 @@ function AuthScreen() {
             setMsg(null);
           }}
           className={`flex-1 rounded-xl py-2 text-sm font-extrabold transition ${
-            mode === "up" ? "bg-brand text-white" : "text-muted"
+            mode === "up" ? "bg-brand text-on-accent" : "text-muted"
           }`}
         >
           Create account
@@ -158,7 +158,7 @@ function AuthScreen() {
 
       <button
         onClick={() => signInWithGoogle()}
-        className="btn-3d w-full rounded-2xl border-line bg-white px-6 py-3 font-bold"
+        className="btn-3d w-full rounded-2xl border-line bg-surface px-6 py-3 font-bold"
       >
         Continue with Google
       </button>
@@ -214,13 +214,13 @@ function Placement({ subtitle, onSkip }: { subtitle: string; onSkip: () => void 
       </p>
       <Link
         href="/diagnostic"
-        className="btn-3d w-full rounded-2xl border-brand-dark bg-brand px-6 py-3 text-center text-lg font-extrabold text-white"
+        className="btn-3d w-full rounded-2xl border-brand-dark bg-brand px-6 py-3 text-center text-lg font-extrabold text-on-accent"
       >
         Take the placement test
       </Link>
       <button
         onClick={onSkip}
-        className="btn-3d w-full rounded-2xl border-line bg-white px-6 py-3 text-lg font-bold text-muted"
+        className="btn-3d w-full rounded-2xl border-line bg-surface px-6 py-3 text-lg font-bold text-muted"
       >
         Skip — I&apos;m a total beginner
       </button>
@@ -241,7 +241,7 @@ function BigButton({
     <button
       type={type}
       disabled={disabled}
-      className="btn-3d rounded-2xl border-brand-dark bg-brand px-6 py-3 text-lg font-extrabold text-white"
+      className="btn-3d rounded-2xl border-brand-dark bg-brand px-6 py-3 text-lg font-extrabold text-on-accent"
     >
       {children}
     </button>

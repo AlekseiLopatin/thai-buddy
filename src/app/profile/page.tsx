@@ -54,7 +54,7 @@ export default function Profile() {
                 await signOut();
                 router.replace("/");
               }}
-              className="btn-3d w-full rounded-2xl border-line bg-white px-6 py-3 font-bold"
+              className="btn-3d w-full rounded-2xl border-line bg-surface px-6 py-3 font-bold"
             >
               Sign out
             </button>
@@ -66,7 +66,7 @@ export default function Profile() {
                   router.replace("/");
                 }
               }}
-              className="btn-3d w-full rounded-2xl border-line bg-white px-6 py-3 font-bold text-danger"
+              className="btn-3d w-full rounded-2xl border-line bg-surface px-6 py-3 font-bold text-danger"
             >
               Reset progress
             </button>
@@ -84,7 +84,7 @@ export default function Profile() {
 
 function Card({ icon, value, label }: { icon: string; value: string | number; label: string }) {
   return (
-    <div className="rounded-2xl border-2 border-line bg-white p-4">
+    <div className="rounded-2xl border-2 border-line bg-surface p-4">
       <p className="text-2xl">{icon}</p>
       <p className="text-2xl font-extrabold">{value}</p>
       <p className="text-sm text-muted">{label}</p>

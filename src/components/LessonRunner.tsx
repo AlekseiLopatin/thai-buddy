@@ -96,7 +96,7 @@ export default function LessonRunner({
             recordReviews(firstTry);
             router.replace("/learn");
           }}
-          className="btn-3d w-full max-w-xs rounded-2xl border-brand-dark bg-brand px-6 py-3 text-lg font-extrabold text-white"
+          className="btn-3d w-full max-w-xs rounded-2xl border-brand-dark bg-brand px-6 py-3 text-lg font-extrabold text-on-accent"
         >
           Continue →
         </button>
@@ -214,7 +214,7 @@ function Prompt({ ex }: { ex: Exercise }) {
     <PromptShell title="What did you hear?">
       <button
         onClick={() => speakThai(ex.word.thai)}
-        className="flex h-28 w-28 items-center justify-center rounded-full border-4 border-sky bg-sky/10 text-5xl active:scale-95"
+        className="flex h-28 w-28 items-center justify-center rounded-full border-4 border-brand bg-brand-soft text-5xl active:scale-95"
         aria-label="Play audio"
       >
         🔊
@@ -240,13 +240,13 @@ function Options({
       {ex.options.map((opt: Word) => {
         const isPicked = selected === opt.id;
         const isAnswer = opt.id === ex.word.id;
-        let cls = "border-line bg-white";
+        let cls = "border-line bg-surface";
         if (checked) {
           if (isAnswer) cls = "border-brand bg-brand-soft";
-          else if (isPicked) cls = "border-danger bg-red-50";
-          else cls = "border-line bg-white opacity-50";
+          else if (isPicked) cls = "border-danger bg-error-soft";
+          else cls = "border-line bg-surface opacity-50";
         } else if (isPicked) {
-          cls = "border-sky bg-sky/10";
+          cls = "border-brand bg-brand-soft";
         }
         return (
           <button
@@ -325,7 +325,7 @@ function Footer({
   tone?: "neutral" | "good" | "bad";
 }) {
   const border =
-    tone === "good" ? "border-brand bg-brand-soft" : tone === "bad" ? "border-danger bg-red-50" : "border-line";
+    tone === "good" ? "border-brand bg-brand-soft" : tone === "bad" ? "border-danger bg-error-soft" : "border-line";
   return (
     <footer className={`sticky bottom-0 border-t-2 ${border}`}>
       <div className="mx-auto flex max-w-xl items-center justify-between gap-4 px-5 py-4">
@@ -348,7 +348,7 @@ function PrimaryBtn({
     <button
       onClick={onClick}
       disabled={disabled}
-      className="btn-3d rounded-2xl border-brand-dark bg-brand px-8 py-3 font-extrabold text-white"
+      className="btn-3d rounded-2xl border-brand-dark bg-brand px-8 py-3 font-extrabold text-on-accent"
     >
       {children}
     </button>

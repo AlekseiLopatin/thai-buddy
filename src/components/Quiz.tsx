@@ -61,7 +61,7 @@ export default function Quiz({
             completeLesson(lessonId, xp);
             onFinish();
           }}
-          className="btn-3d w-full max-w-xs rounded-2xl border-brand-dark bg-brand px-6 py-3 text-lg font-extrabold text-white"
+          className="btn-3d w-full max-w-xs rounded-2xl border-brand-dark bg-brand px-6 py-3 text-lg font-extrabold text-on-accent"
         >
           Continue →
         </button>
@@ -120,12 +120,12 @@ export default function Quiz({
         <div className="grid grid-cols-1 gap-3 pb-4">
           {q.options.map((opt) => {
             const isPicked = picked === opt.id;
-            let cls = "border-line bg-white";
+            let cls = "border-line bg-surface";
             if (checked) {
               if (opt.correct) cls = "border-brand bg-brand-soft";
-              else if (isPicked) cls = "border-danger bg-red-50";
-              else cls = "border-line bg-white opacity-50";
-            } else if (isPicked) cls = "border-sky bg-sky/10";
+              else if (isPicked) cls = "border-danger bg-error-soft";
+              else cls = "border-line bg-surface opacity-50";
+            } else if (isPicked) cls = "border-brand bg-brand-soft";
             return (
               <button
                 key={opt.id}
@@ -140,7 +140,7 @@ export default function Quiz({
         </div>
       </main>
 
-      <footer className={`sticky bottom-0 border-t-2 ${checked ? (isCorrect ? "border-brand bg-brand-soft" : "border-danger bg-red-50") : "border-line"}`}>
+      <footer className={`sticky bottom-0 border-t-2 ${checked ? (isCorrect ? "border-brand bg-brand-soft" : "border-danger bg-error-soft") : "border-line"}`}>
         <div className="mx-auto flex max-w-xl items-center justify-between gap-4 px-5 py-4">
           {checked ? (
             <span className={`font-extrabold ${isCorrect ? "text-brand-dark" : "text-danger"}`}>
@@ -152,7 +152,7 @@ export default function Quiz({
           <button
             onClick={checked ? next : check}
             disabled={!checked && picked === null}
-            className="btn-3d rounded-2xl border-brand-dark bg-brand px-8 py-3 font-extrabold text-white"
+            className="btn-3d rounded-2xl border-brand-dark bg-brand px-8 py-3 font-extrabold text-on-accent"
           >
             {checked ? "Continue" : "Check"}
           </button>

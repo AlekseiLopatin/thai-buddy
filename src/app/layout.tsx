@@ -1,13 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
-import { Noto_Sans_Thai } from "next/font/google";
+import { Poppins, Raleway, Noto_Sans_Thai } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/lib/auth";
 import { ProgressProvider } from "@/lib/progress";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["300", "400", "700"],
+});
+
+const raleway = Raleway({
+  variable: "--font-raleway",
+  subsets: ["latin"],
+  weight: ["700"],
 });
 
 const notoThai = Noto_Sans_Thai({
@@ -23,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#58cc02",
+  themeColor: "#141210",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -37,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${notoThai.variable} h-full antialiased`}
+      className={`${poppins.variable} ${raleway.variable} ${notoThai.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-ink">
         <AuthProvider>

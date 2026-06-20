@@ -86,7 +86,7 @@ export default function Diagnostic() {
             setPlacement(done);
             router.replace("/learn");
           }}
-          className="btn-3d w-full max-w-xs rounded-2xl border-brand-dark bg-brand px-6 py-3 text-lg font-extrabold text-white"
+          className="btn-3d w-full max-w-xs rounded-2xl border-brand-dark bg-brand px-6 py-3 text-lg font-extrabold text-on-accent"
         >
           Start learning →
         </button>
@@ -121,11 +121,11 @@ export default function Diagnostic() {
           {q.options.map((opt) => {
             const isPicked = picked === opt;
             const isCorrect = opt === q.word.en;
-            let cls = "border-line bg-white";
+            let cls = "border-line bg-surface";
             if (picked) {
-              if (isCorrect) cls = "border-brand bg-brand-soft text-brand-dark";
-              else if (isPicked) cls = "border-danger bg-red-50 text-danger";
-              else cls = "border-line bg-white opacity-60";
+              if (isCorrect) cls = "border-brand bg-brand-soft text-brand";
+              else if (isPicked) cls = "border-danger bg-error-soft text-danger";
+              else cls = "border-line bg-surface opacity-60";
             }
             return (
               <button

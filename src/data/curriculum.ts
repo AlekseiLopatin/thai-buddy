@@ -2,29 +2,35 @@ import { Lesson, Level, Unit, Word } from "@/lib/types";
 import { WORDS } from "./words";
 
 // Each category becomes a Unit; its words are chunked into lessons of ~3.
+// Warm "Refined Ember" palette — gold, olive, bronze, terracotta (no bright colors).
+const GOLD = "#d4a44b";
+const OLIVE = "#7c9a52";
+const BRONZE = "#9a8870";
+const TERRA = "#b85042";
+
 const UNIT_META: Record<string, { emoji: string; color: string }> = {
-  Greetings: { emoji: "👋", color: "#58cc02" },
-  Numbers: { emoji: "🔢", color: "#1cb0f6" },
-  Colors: { emoji: "🎨", color: "#ce82ff" },
-  Food: { emoji: "🍜", color: "#ff9600" },
-  Family: { emoji: "👨‍👩‍👧", color: "#ff4b4b" },
-  Animals: { emoji: "🐘", color: "#2cc2a0" },
-  Places: { emoji: "🏠", color: "#1cb0f6" },
-  Transport: { emoji: "🚆", color: "#ff9600" },
-  Nature: { emoji: "🌳", color: "#58cc02" },
-  Feelings: { emoji: "😊", color: "#ffc800" },
-  Verbs: { emoji: "🏃", color: "#ce82ff" },
-  Concepts: { emoji: "💡", color: "#ff4b4b" },
-  Fruits: { emoji: "🍌", color: "#ffc800" },
-  Vegetables: { emoji: "🥬", color: "#2cc2a0" },
-  Market: { emoji: "🏷️", color: "#ff9600" },
-  Pronouns: { emoji: "🧑", color: "#ce82ff" },
-  Time: { emoji: "⏰", color: "#1cb0f6" },
-  Body: { emoji: "✋", color: "#ff4b4b" },
-  Restaurant: { emoji: "🍽️", color: "#ff9600" },
-  Directions: { emoji: "🧭", color: "#2cc2a0" },
-  Counting: { emoji: "🔢", color: "#1cb0f6" },
-  Phrases: { emoji: "💬", color: "#58cc02" },
+  Greetings: { emoji: "👋", color: GOLD },
+  Numbers: { emoji: "🔢", color: OLIVE },
+  Colors: { emoji: "🎨", color: BRONZE },
+  Food: { emoji: "🍜", color: TERRA },
+  Family: { emoji: "👨‍👩‍👧", color: GOLD },
+  Animals: { emoji: "🐘", color: OLIVE },
+  Places: { emoji: "🏠", color: BRONZE },
+  Transport: { emoji: "🚆", color: TERRA },
+  Nature: { emoji: "🌳", color: OLIVE },
+  Feelings: { emoji: "😊", color: GOLD },
+  Verbs: { emoji: "🏃", color: BRONZE },
+  Concepts: { emoji: "💡", color: TERRA },
+  Fruits: { emoji: "🍌", color: GOLD },
+  Vegetables: { emoji: "🥬", color: OLIVE },
+  Market: { emoji: "🏷️", color: TERRA },
+  Pronouns: { emoji: "🧑", color: BRONZE },
+  Time: { emoji: "⏰", color: GOLD },
+  Body: { emoji: "✋", color: TERRA },
+  Restaurant: { emoji: "🍽️", color: GOLD },
+  Directions: { emoji: "🧭", color: OLIVE },
+  Counting: { emoji: "🔢", color: BRONZE },
+  Phrases: { emoji: "💬", color: OLIVE },
 };
 
 const LESSON_SIZE = 5;

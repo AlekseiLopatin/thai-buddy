@@ -38,7 +38,7 @@ export default function ReviewPage() {
         <span className="text-7xl">✅</span>
         <h1 className="text-2xl font-extrabold">Nothing to review yet</h1>
         <p className="text-muted">Finish a few lessons and come back — words you learn are scheduled for spaced review.</p>
-        <Link href="/learn" className="btn-3d rounded-2xl border-brand-dark bg-brand px-6 py-3 font-extrabold text-white">
+        <Link href="/learn" className="btn-3d rounded-2xl border-brand-dark bg-brand px-6 py-3 font-extrabold text-on-accent">
           Back to map
         </Link>
       </main>

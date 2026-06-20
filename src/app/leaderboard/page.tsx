@@ -101,7 +101,7 @@ function CloudFriends() {
               <button
                 onClick={() => add(u.id)}
                 disabled={pendingSent.has(u.id)}
-                className="btn-3d rounded-xl border-brand-dark bg-brand px-3 py-1.5 text-sm font-extrabold text-white disabled:opacity-50"
+                className="btn-3d rounded-xl border-brand-dark bg-brand px-3 py-1.5 text-sm font-extrabold text-on-accent disabled:opacity-50"
               >
                 {pendingSent.has(u.id) ? "Sent" : "Add"}
               </button>
@@ -116,13 +116,12 @@ function CloudFriends() {
           <h2 className="mb-2 text-sm font-extrabold uppercase text-muted">Friend requests</h2>
           <ul className="flex flex-col gap-2">
             {requests.map((u) => (
-              <li key={u.id} className="flex items-center gap-3 rounded-2xl border-2 border-sky bg-sky/10 px-4 py-2">
+              <li key={u.id} className="flex items-center gap-3 rounded-2xl border-2 border-brand bg-brand-soft px-4 py-2">
                 <span className="text-2xl">{u.avatar_emoji ?? "🧑‍🎓"}</span>
                 <span className="flex-1 font-bold">{u.username ?? u.display_name}</span>
                 <button
                   onClick={() => accept(u.id)}
-                  className="btn-3d rounded-xl border-sky-dark bg-sky px-3 py-1.5 text-sm font-extrabold text-white"
-                  style={{ borderColor: "#1899d6" }}
+                  className="btn-3d rounded-xl border-brand-dark bg-brand px-3 py-1.5 text-sm font-extrabold text-on-accent"
                 >
                   Accept
                 </button>
@@ -203,7 +202,7 @@ function Row({
   return (
     <li
       className={`flex items-center gap-3 rounded-2xl border-2 px-4 py-3 ${
-        you ? "border-brand bg-brand-soft" : "border-line bg-white"
+        you ? "border-brand bg-brand-soft" : "border-line bg-surface"
       }`}
     >
       <span className="w-6 text-center text-lg font-extrabold text-muted">{rank}</span>

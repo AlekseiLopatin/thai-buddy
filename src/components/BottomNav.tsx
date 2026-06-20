@@ -13,7 +13,7 @@ const TABS = [
 export default function BottomNav() {
   const pathname = usePathname();
   return (
-    <nav className="sticky bottom-0 z-10 border-t border-line bg-white">
+    <nav className="sticky bottom-0 z-10 border-t border-line bg-surface">
       <div className="mx-auto flex max-w-xl">
         {TABS.map((t) => {
           const active = pathname === t.href;
