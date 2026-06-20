@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useProgress } from "@/lib/progress";
 import { useAuth } from "@/lib/auth";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   const { configured } = useAuth();
@@ -250,7 +251,10 @@ function BigButton({
 
 function Splash({ children, subtitle }: { children?: React.ReactNode; subtitle?: string }) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-6 px-6">
+    <main className="relative flex min-h-screen flex-col items-center justify-center gap-6 px-6">
+      <div className="absolute right-4 top-4">
+        <ThemeToggle />
+      </div>
       <div className="flex flex-col items-center gap-2 text-center">
         <span className="text-7xl">🇹🇭</span>
         <h1 className="text-4xl font-extrabold tracking-tight">

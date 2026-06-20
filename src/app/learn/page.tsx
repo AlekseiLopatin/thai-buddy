@@ -128,13 +128,13 @@ function LessonNode({
   color: string;
   label: string;
 }) {
-  const ring = done ? "#d4a44b" : unlocked ? color : "#3a3020";
+  const ring = done ? "var(--accent)" : unlocked ? color : "var(--line)";
   const content = (
     <div className="flex flex-col items-center gap-1">
       <div
         className="btn-3d flex h-20 w-20 items-center justify-center rounded-full text-4xl shadow-sm"
         style={{
-          backgroundColor: unlocked ? "#201c18" : "#1a1613",
+          backgroundColor: unlocked ? "var(--surface)" : "var(--elevated)",
           border: `5px solid ${ring}`,
           borderBottomWidth: 8,
         }}

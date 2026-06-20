@@ -1,54 +1,88 @@
 @import "tailwindcss";
 
 /* ============================================================
-   REFINED EMBER — Aleksei Lopatin brand system v1.0
-   Warm dark surfaces, single gold accent, Raleway + Poppins.
+   REFINED EMBER — light (default) + dark themes.
+   Tokens live on :root (light) and [data-theme="dark"]; Tailwind
+   utilities reference them via @theme inline, so they swap at runtime.
    ============================================================ */
 
 :root {
-  --background: #141210; /* base page background */
-  --foreground: #e8dcc8; /* primary text */
+  /* light theme — warm cream surfaces, gold accent, dark warm text */
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --elevated: #f3ecdd;
+  --accent: #d4a44b;
+  --accent-dark: #a87f33;
+  --accent-soft: rgba(212, 164, 75, 0.18);
+  --on-accent: #141210;
+  --ink: #2b2620;
+  --muted: #6b5f4f;
+  --faint: #a89a86;
+  --line: #e7ddcb;
+  --line-strong: #cbbfa8;
+  --success: #6f8b46;
+  --danger: #b85042;
+  --error-soft: rgba(184, 80, 66, 0.1);
+}
+
+[data-theme="dark"] {
+  /* dark theme — the original Refined Ember palette */
+  --bg: #141210;
+  --surface: #201c18;
+  --elevated: #2c2620;
+  --accent: #d4a44b;
+  --accent-dark: #a87f33;
+  --accent-soft: rgba(212, 164, 75, 0.15);
+  --on-accent: #141210;
+  --ink: #e8dcc8;
+  --muted: #9a8870;
+  --faint: #5a4e42;
+  --line: #3a3020;
+  --line-strong: #5a4e42;
+  --success: #7c9a52;
+  --danger: #b85042;
+  --error-soft: rgba(184, 80, 66, 0.14);
 }
 
 @theme inline {
   /* surfaces */
-  --color-background: var(--background);
-  --color-surface: #201c18;
-  --color-elevated: #2c2620;
+  --color-background: var(--bg);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
 
   /* fonts */
   --font-sans: var(--font-poppins);
   --font-heading: var(--font-raleway);
   --font-thai: var(--font-noto-thai);
 
-  /* gold is the single accent — brand/gold/sky/purple all map to it */
-  --color-brand: #d4a44b;
-  --color-brand-dark: #a87f33; /* darker gold for the 3D button edge */
-  --color-brand-soft: rgba(212, 164, 75, 0.15);
-  --color-on-accent: #141210; /* text/icons on gold */
-  --color-gold: #d4a44b;
-  --color-sky: #d4a44b;
-  --color-sky-dark: #a87f33;
-  --color-purple: #7c9a52; /* secondary warm tone (olive) for variety only */
+  /* gold is the single accent — brand/gold/sky map to it */
+  --color-brand: var(--accent);
+  --color-brand-dark: var(--accent-dark);
+  --color-brand-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+  --color-gold: var(--accent);
+  --color-sky: var(--accent);
+  --color-sky-dark: var(--accent-dark);
+  --color-purple: var(--success); /* secondary warm tone */
 
   /* text */
-  --color-ink: #e8dcc8;
-  --color-muted: #9a8870;
-  --color-faint: #5a4e42;
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
 
   /* borders */
-  --color-line: #3a3020;
-  --color-line-strong: #5a4e42;
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
 
   /* semantic */
-  --color-success: #7c9a52;
-  --color-danger: #b85042;
-  --color-error-soft: rgba(184, 80, 66, 0.14);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-error-soft: var(--error-soft);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--ink);
   font-family: var(--font-poppins), system-ui, sans-serif;
 }
 

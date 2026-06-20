@@ -3,6 +3,10 @@ import { Poppins, Raleway, Noto_Sans_Thai } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/lib/auth";
 import { ProgressProvider } from "@/lib/progress";
+import { ThemeProvider } from "@/lib/theme";
+
+// Runs before paint so a returning dark-mode user never sees a light flash.
+const noFlashTheme = `(function(){try{if(localStorage.getItem('thai-buddy-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();`;
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -29,7 +33,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#141210",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#faf6ef" },
+    { media: "(prefers-color-scheme: dark)", color: "#141210" },
+  ],
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -43,12 +50,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${poppins.variable} ${raleway.variable} ${notoThai.variable} h-full antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: noFlashTheme }} />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-ink">
-        <AuthProvider>
-          <ProgressProvider>{children}</ProgressProvider>
-        </AuthProvider>
+        <ThemeProvider>
+          <AuthProvider>
+            <ProgressProvider>{children}</ProgressProvider>
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

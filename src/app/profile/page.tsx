@@ -6,6 +6,7 @@ import TopBar from "@/components/TopBar";
 import BottomNav from "@/components/BottomNav";
 import { useProgress } from "@/lib/progress";
 import { useAuth } from "@/lib/auth";
+import ThemeToggle from "@/components/ThemeToggle";
 import { ALL_LESSONS } from "@/data/curriculum";
 import { LEVELS } from "@/lib/types";
 
@@ -45,6 +46,12 @@ export default function Profile() {
           <Card icon="⚡" value={state.xp} label="Total XP" />
           <Card icon="✅" value={`${state.completedLessons.length}/${totalLessons}`} label="Lessons done" />
           <Card icon="🎯" value={`${state.dailyGoal}`} label="Daily goal (XP)" />
+        </div>
+
+        {/* appearance */}
+        <div className="mb-6 flex items-center justify-between rounded-2xl border-2 border-line bg-surface px-4 py-3">
+          <span className="font-bold">Appearance</span>
+          <ThemeToggle />
         </div>
 
         <div className="flex flex-col gap-3">

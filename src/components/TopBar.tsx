@@ -2,6 +2,7 @@
 
 import { useProgress } from "@/lib/progress";
 import { LEVELS } from "@/lib/types";
+import ThemeToggle from "./ThemeToggle";
 
 export default function TopBar() {
   const { state } = useProgress();
@@ -20,6 +21,7 @@ export default function TopBar() {
           <span className="flex items-center gap-1" title="Total XP">
             ⚡ <span className="text-gold">{state.xp}</span>
           </span>
+          <ThemeToggle />
         </div>
       </div>
     </header>
