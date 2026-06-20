@@ -1,5 +1,8 @@
 export type Level = 1 | 2 | 3 | 4 | 5;
 
+/** Drives the polite sentence ending (ค่ะ vs ครับ). Default is female. */
+export type Gender = "female" | "male";
+
 export const LEVELS: { id: Level; name: string; blurb: string }[] = [
   { id: 1, name: "Absolute Beginner", blurb: "New to Thai — start with the basics" },
   { id: 2, name: "Newcomer", blurb: "You know a handful of words" },
@@ -17,6 +20,11 @@ export interface Word {
   category: string;
   level: Level;
   isPhrase?: boolean; // multi-word phrase/sentence — skip picture-matching, favor recall
+  /**
+   * If set, this is a standalone utterance that takes a polite ending.
+   * "statement" → ค่ะ/ครับ, "question" → คะ/ครับ (female forms differ by tone).
+   */
+  polite?: "statement" | "question";
 }
 
 export interface Lesson {

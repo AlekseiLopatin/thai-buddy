@@ -4,7 +4,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { buildExercises, Exercise, speakThai } from "@/lib/exercises";
 import { ReviewResult, useProgress } from "@/lib/progress";
-import { Word } from "@/lib/types";
+import { Gender, Word } from "@/lib/types";
+import { displayThai } from "@/lib/polite";
 
 type Phase = "teach" | "quiz" | "done";
 
@@ -20,7 +21,8 @@ export default function LessonRunner({
   teach: boolean;
 }) {
   const router = useRouter();
-  const { completeLesson, recordReviews } = useProgress();
+  const { state, completeLesson, recordReviews } = useProgress();
+  const gender = state.gender;
 
   const initialQueue = useMemo(() => buildExercises(words), [words]);
 
@@ -38,29 +40,31 @@ export default function LessonRunner({
 
   const ex = queue[pos];
 
-  // Speak on the listening prompt and when teaching a new word.
+  // Speak on the listening prompt and when teaching a new word (polite form).
   useEffect(() => {
-    if (phase === "quiz" && ex?.kind === "listen") speakThai(ex.word.thai);
-  }, [phase, ex]);
+    if (phase === "quiz" && ex?.kind === "listen") speakThai(displayThai(ex.word, gender).thai);
+  }, [phase, ex, gender]);
   useEffect(() => {
-    if (phase === "teach") speakThai(words[teachIdx]?.thai ?? "");
-  }, [phase, teachIdx, words]);
+    const w = words[teachIdx];
+    if (phase === "teach" && w) speakThai(displayThai(w, gender).thai);
+  }, [phase, teachIdx, words, gender]);
 
   // ---- Teach phase (TEFL "presentation"): meet each word before practice ----
   if (phase === "teach") {
     const w = words[teachIdx];
+    const d = displayThai(w, gender);
     const last = teachIdx >= words.length - 1;
     return (
       <Shell title={title} top={<TeachProgress idx={teachIdx} total={words.length} />}>
         <div className="flex flex-1 flex-col items-center justify-center gap-6">
           <p className="text-sm font-bold uppercase tracking-wide text-muted">New word</p>
           <button
-            onClick={() => speakThai(w.thai)}
+            onClick={() => speakThai(d.thai)}
             className="flex flex-col items-center gap-3 rounded-3xl border-2 border-line px-10 py-8 active:scale-95"
           >
             <span className="text-7xl">{w.emoji}</span>
-            <span className="font-thai text-4xl font-bold">{w.thai}</span>
-            <span className="text-base text-muted">{w.roman} 🔊</span>
+            <span className="font-thai text-4xl font-bold">{d.thai}</span>
+            <span className="text-base text-muted">{d.roman} 🔊</span>
             <span className="text-xl font-extrabold capitalize">{w.en}</span>
           </button>
         </div>
@@ -143,8 +147,8 @@ export default function LessonRunner({
       }
       onExit={() => router.replace("/learn")}
     >
-      <Prompt ex={ex} />
-      <Options ex={ex} selected={selected} checked={checked} onSelect={setSelected} />
+      <Prompt ex={ex} gender={gender} />
+      <Options ex={ex} gender={gender} selected={selected} checked={checked} onSelect={setSelected} />
       <Footer tone={checked ? (isCorrect ? "good" : "bad") : "neutral"}>
         {checked ? (
           <span className={`font-extrabold ${isCorrect ? "text-brand-dark" : "text-danger"}`}>
@@ -176,16 +180,17 @@ function shuffle<T>(arr: T[]): T[] {
 
 /* ---------------- prompt + options ---------------- */
 
-function Prompt({ ex }: { ex: Exercise }) {
+function Prompt({ ex, gender }: { ex: Exercise; gender: Gender }) {
+  const d = displayThai(ex.word, gender);
   if (ex.kind === "pickImage") {
     return (
       <PromptShell title="Tap the matching picture">
         <button
-          onClick={() => speakThai(ex.word.thai)}
+          onClick={() => speakThai(d.thai)}
           className="flex flex-col items-center gap-1 rounded-3xl border-2 border-line px-10 py-6 active:scale-95"
         >
-          <span className="font-thai text-5xl font-bold">{ex.word.thai}</span>
-          <span className="text-sm text-muted">{ex.word.roman} 🔊</span>
+          <span className="font-thai text-5xl font-bold">{d.thai}</span>
+          <span className="text-sm text-muted">{d.roman} 🔊</span>
         </button>
       </PromptShell>
     );
@@ -195,7 +200,7 @@ function Prompt({ ex }: { ex: Exercise }) {
       <PromptShell title="What does this mean?">
         <div className="flex flex-col items-center gap-2">
           <span className="text-7xl">{ex.word.emoji}</span>
-          <span className="font-thai text-3xl font-bold">{ex.word.thai}</span>
+          <span className="font-thai text-3xl font-bold">{d.thai}</span>
         </div>
       </PromptShell>
     );
@@ -213,7 +218,7 @@ function Prompt({ ex }: { ex: Exercise }) {
   return (
     <PromptShell title="What did you hear?">
       <button
-        onClick={() => speakThai(ex.word.thai)}
+        onClick={() => speakThai(d.thai)}
         className="flex h-28 w-28 items-center justify-center rounded-full border-4 border-brand bg-brand-soft text-5xl active:scale-95"
         aria-label="Play audio"
       >
@@ -225,11 +230,13 @@ function Prompt({ ex }: { ex: Exercise }) {
 
 function Options({
   ex,
+  gender,
   selected,
   checked,
   onSelect,
 }: {
   ex: Exercise;
+  gender: Gender;
   selected: string | null;
   checked: boolean;
   onSelect: (id: string) => void;
@@ -266,7 +273,7 @@ function Options({
             )}
             {ex.kind === "pickEnglish" && <span className="capitalize">{opt.en}</span>}
             {(ex.kind === "pickThai" || ex.kind === "listen") && (
-              <span className="font-thai text-2xl">{opt.thai}</span>
+              <span className="font-thai text-2xl">{displayThai(opt, gender).thai}</span>
             )}
           </button>
         );

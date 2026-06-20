@@ -9,12 +9,13 @@ import { Word } from "@/lib/types";
 export const WORDS: Word[] = [
   // ---------- Level 1 — Absolute Beginner ----------
   // Greetings & basics
-  { id: "hello", thai: "สวัสดี", roman: "sà-wàt-dii", en: "hello", emoji: "👋", category: "Greetings", level: 1 },
-  { id: "thanks", thai: "ขอบคุณ", roman: "khàawp-khun", en: "thank you", emoji: "🙏", category: "Greetings", level: 1 },
-  { id: "yes", thai: "ใช่", roman: "châi", en: "yes", emoji: "✅", category: "Greetings", level: 1 },
-  { id: "no", thai: "ไม่", roman: "mâi", en: "no", emoji: "❌", category: "Greetings", level: 1 },
-  { id: "bye", thai: "ลาก่อน", roman: "laa-gàawn", en: "goodbye", emoji: "🚶", category: "Greetings", level: 1 },
-  { id: "sorry", thai: "ขอโทษ", roman: "khǎaw-thôot", en: "sorry", emoji: "😔", category: "Greetings", level: 1 },
+  { id: "hello", thai: "สวัสดี", roman: "sà-wàt-dii", en: "hello", emoji: "👋", category: "Greetings", level: 1, polite: "statement" },
+  { id: "thanks", thai: "ขอบคุณ", roman: "khàawp-khun", en: "thank you", emoji: "🙏", category: "Greetings", level: 1, polite: "statement" },
+  { id: "yes", thai: "ใช่", roman: "châi", en: "yes", emoji: "✅", category: "Greetings", level: 1, polite: "statement" },
+  { id: "no", thai: "ไม่ใช่", roman: "mâi châi", en: "no", emoji: "❌", category: "Greetings", level: 1, polite: "statement" },
+  // Thais rarely say ลาก่อน in daily life; "แล้วเจอกัน" (see you) is the natural friendly farewell.
+  { id: "bye", thai: "แล้วเจอกัน", roman: "láaeo jer gan", en: "see you / bye", emoji: "👋", category: "Greetings", level: 1, polite: "statement" },
+  { id: "sorry", thai: "ขอโทษ", roman: "khǎaw-thôot", en: "sorry / excuse me", emoji: "😔", category: "Greetings", level: 1, polite: "statement" },
 
   // Numbers — ones
   { id: "n1", thai: "หนึ่ง", roman: "nèung", en: "one", emoji: "1", category: "Numbers", level: 1 },
@@ -92,12 +93,12 @@ export const WORDS: Word[] = [
   // ---------- Level 3 — Elementary ----------
   // Market & shopping (combines numbers + food in real life)
   { id: "price", thai: "ราคา", roman: "raa-khaa", en: "price", emoji: "🏷️", category: "Market", level: 3 },
-  { id: "howmuch", thai: "เท่าไหร่", roman: "thâo-rài", en: "how much", emoji: "❓", category: "Market", level: 3 },
+  { id: "howmuch", thai: "เท่าไหร่", roman: "thâo-rài", en: "how much", emoji: "❓", category: "Market", level: 3, polite: "question" },
   { id: "baht", thai: "บาท", roman: "bàat", en: "baht", emoji: "💵", category: "Market", level: 3 },
   { id: "expensive", thai: "แพง", roman: "phaaeng", en: "expensive", emoji: "💸", category: "Market", level: 3 },
   { id: "cheap", thai: "ถูก", roman: "thùuk", en: "cheap", emoji: "🪙", category: "Market", level: 3 },
   { id: "want", thai: "เอา", roman: "ao", en: "to want / take", emoji: "🤲", category: "Market", level: 3 },
-  { id: "delicious", thai: "อร่อย", roman: "à-ràuy", en: "delicious", emoji: "😋", category: "Market", level: 3 },
+  { id: "delicious", thai: "อร่อย", roman: "à-ràuy", en: "delicious", emoji: "😋", category: "Market", level: 3, polite: "statement" },
   { id: "money", thai: "เงิน", roman: "ngern", en: "money", emoji: "💰", category: "Market", level: 3 },
 
   // Places
@@ -217,16 +218,16 @@ export const WORDS: Word[] = [
   { id: "count_cat3", thai: "แมวสามตัว", roman: "maaeo sǎam dtua", en: "three cats", emoji: "🐱", category: "Counting", level: 3, isPhrase: true },
 
   // ---------- Level 3 — Essential phrases ----------
-  { id: "ph_howmuch", thai: "ราคาเท่าไหร่", roman: "raa-khaa thâo-rài", en: "how much is it?", emoji: "💰", category: "Phrases", level: 3, isPhrase: true },
-  { id: "ph_nevermind", thai: "ไม่เป็นไร", roman: "mâi bpen rai", en: "no problem / never mind", emoji: "👌", category: "Phrases", level: 3, isPhrase: true },
-  { id: "ph_nounderstand", thai: "ไม่เข้าใจ", roman: "mâi khâo-jai", en: "I don't understand", emoji: "🤷", category: "Phrases", level: 3, isPhrase: true },
-  { id: "ph_again", thai: "พูดอีกครั้งได้ไหม", roman: "phûut ìik khráng dâi mǎi", en: "can you say it again?", emoji: "🔁", category: "Phrases", level: 3, isPhrase: true },
-  { id: "ph_toilet", thai: "ห้องน้ำอยู่ที่ไหน", roman: "hâawng-nám yùu thîi-nǎi", en: "where is the toilet?", emoji: "🚻", category: "Phrases", level: 3, isPhrase: true },
-  { id: "ph_takethis", thai: "เอาอันนี้", roman: "ao an-níi", en: "I'll take this one", emoji: "👉", category: "Phrases", level: 3, isPhrase: true },
-  { id: "ph_verytasty", thai: "อร่อยมาก", roman: "à-ràuy mâak", en: "very delicious", emoji: "😋", category: "Phrases", level: 3, isPhrase: true },
-  { id: "ph_tooexpensive", thai: "แพงไป", roman: "phaaeng bpai", en: "too expensive", emoji: "💸", category: "Phrases", level: 3, isPhrase: true },
-  { id: "ph_discount", thai: "ลดได้ไหม", roman: "lót dâi mǎi", en: "can you give a discount?", emoji: "🪙", category: "Phrases", level: 3, isPhrase: true },
-  { id: "ph_littlethai", thai: "พูดไทยได้นิดหน่อย", roman: "phûut thai dâi nít-nàuy", en: "I speak a little Thai", emoji: "🗣️", category: "Phrases", level: 3, isPhrase: true },
+  { id: "ph_howmuch", thai: "ราคาเท่าไหร่", roman: "raa-khaa thâo-rài", en: "how much is it?", emoji: "💰", category: "Phrases", level: 3, isPhrase: true, polite: "question" },
+  { id: "ph_nevermind", thai: "ไม่เป็นไร", roman: "mâi bpen rai", en: "no problem / never mind", emoji: "👌", category: "Phrases", level: 3, isPhrase: true, polite: "statement" },
+  { id: "ph_nounderstand", thai: "ไม่เข้าใจ", roman: "mâi khâo-jai", en: "I don't understand", emoji: "🤷", category: "Phrases", level: 3, isPhrase: true, polite: "statement" },
+  { id: "ph_again", thai: "พูดอีกครั้งได้ไหม", roman: "phûut ìik khráng dâi mǎi", en: "can you say it again?", emoji: "🔁", category: "Phrases", level: 3, isPhrase: true, polite: "question" },
+  { id: "ph_toilet", thai: "ห้องน้ำอยู่ที่ไหน", roman: "hâawng-nám yùu thîi-nǎi", en: "where is the toilet?", emoji: "🚻", category: "Phrases", level: 3, isPhrase: true, polite: "question" },
+  { id: "ph_takethis", thai: "เอาอันนี้", roman: "ao an-níi", en: "I'll take this one", emoji: "👉", category: "Phrases", level: 3, isPhrase: true, polite: "statement" },
+  { id: "ph_verytasty", thai: "อร่อยมาก", roman: "à-ràuy mâak", en: "very delicious", emoji: "😋", category: "Phrases", level: 3, isPhrase: true, polite: "statement" },
+  { id: "ph_tooexpensive", thai: "แพงไป", roman: "phaaeng bpai", en: "too expensive", emoji: "💸", category: "Phrases", level: 3, isPhrase: true, polite: "statement" },
+  { id: "ph_discount", thai: "ลดได้ไหม", roman: "lót dâi mǎi", en: "can you give a discount?", emoji: "🪙", category: "Phrases", level: 3, isPhrase: true, polite: "question" },
+  { id: "ph_littlethai", thai: "พูดไทยได้นิดหน่อย", roman: "phûut thai dâi nít-nàuy", en: "I speak a little Thai", emoji: "🗣️", category: "Phrases", level: 3, isPhrase: true, polite: "statement" },
 ];
 
 export const WORD_BY_ID: Record<string, Word> = Object.fromEntries(

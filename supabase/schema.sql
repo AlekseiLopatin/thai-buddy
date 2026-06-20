@@ -1,5 +1,8 @@
 -- Thai Buddy — Supabase schema.
 -- Run this once in the Supabase dashboard → SQL Editor → New query → Run.
+--
+-- ALREADY RAN AN EARLIER VERSION? Just run this one line to add the gender column:
+--   alter table public.profiles add column if not exists gender text default 'female';
 
 -- ────────────────────────────── profiles ──────────────────────────────
 create table if not exists public.profiles (
@@ -7,6 +10,7 @@ create table if not exists public.profiles (
   username         text unique,
   display_name     text,
   avatar_emoji     text default '🧑‍🎓',
+  gender           text default 'female', -- drives polite ending (ค่ะ/ครับ); not personal data
   placed           boolean default false,
   level            int default 1,
   xp               int default 0,

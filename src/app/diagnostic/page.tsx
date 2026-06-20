@@ -6,6 +6,7 @@ import { WORDS } from "@/data/words";
 import { useProgress } from "@/lib/progress";
 import { Level, LEVELS, Word } from "@/lib/types";
 import { speakThai } from "@/lib/exercises";
+import { displayThai } from "@/lib/polite";
 
 interface Question {
   word: Word;
@@ -46,7 +47,7 @@ function placementFor(score: number): Level {
 
 export default function Diagnostic() {
   const router = useRouter();
-  const { setPlacement } = useProgress();
+  const { state, setPlacement } = useProgress();
   const questions = useMemo(() => buildQuestions(), []);
   const [idx, setIdx] = useState(0);
   const [score, setScore] = useState(0);
@@ -109,12 +110,12 @@ export default function Diagnostic() {
           What does this word mean?
         </h2>
         <button
-          onClick={() => speakThai(q.word.thai)}
+          onClick={() => speakThai(displayThai(q.word, state.gender).thai)}
           className="flex flex-col items-center gap-1 rounded-3xl border-2 border-line px-10 py-6 active:scale-95"
           title="Tap to hear it"
         >
-          <span className="font-thai text-5xl font-bold">{q.word.thai}</span>
-          <span className="text-sm text-muted">{q.word.roman} 🔊</span>
+          <span className="font-thai text-5xl font-bold">{displayThai(q.word, state.gender).thai}</span>
+          <span className="text-sm text-muted">{displayThai(q.word, state.gender).roman} 🔊</span>
         </button>
 
         <div className="grid w-full grid-cols-1 gap-3">

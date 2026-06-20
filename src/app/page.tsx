@@ -6,6 +6,8 @@ import Link from "next/link";
 import { useProgress } from "@/lib/progress";
 import { useAuth } from "@/lib/auth";
 import ThemeToggle from "@/components/ThemeToggle";
+import GenderChoice from "@/components/GenderChoice";
+import { Gender } from "@/lib/types";
 
 export default function Home() {
   const { configured } = useAuth();
@@ -15,8 +17,9 @@ export default function Home() {
 /* ============================ local-only mode ============================ */
 
 function LocalHome() {
-  const { state, hydrated, setName, setPlacement } = useProgress();
+  const { state, hydrated, setName, setGender, setPlacement } = useProgress();
   const [draft, setDraft] = useState("");
+  const [gender, setGenderLocal] = useState<Gender>("female");
   const router = useRouter();
 
   useEffect(() => {
@@ -31,7 +34,10 @@ function LocalHome() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            if (draft.trim()) setName(draft);
+            if (draft.trim()) {
+              setGender(gender);
+              setName(draft);
+            }
           }}
           className="flex w-full flex-col gap-3"
         >
@@ -43,6 +49,7 @@ function LocalHome() {
             maxLength={20}
             autoFocus
           />
+          <GenderChoice value={gender} onChange={setGenderLocal} />
           <BigButton type="submit" disabled={!draft.trim()}>
             Get started
           </BigButton>
@@ -168,8 +175,9 @@ function AuthScreen() {
 }
 
 function UsernameSetup() {
-  const { updateUsername } = useProgress();
+  const { updateUsername, setGender } = useProgress();
   const [name, setName] = useState("");
+  const [gender, setGenderLocal] = useState<Gender>("female");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -177,6 +185,7 @@ function UsernameSetup() {
     e.preventDefault();
     setBusy(true);
     setError(null);
+    setGender(gender);
     const res = await updateUsername(name);
     setBusy(false);
     if (res.error) setError(res.error);
@@ -193,6 +202,7 @@ function UsernameSetup() {
           maxLength={20}
           autoFocus
         />
+        <GenderChoice value={gender} onChange={setGenderLocal} />
         {error && <p className="text-sm font-semibold text-danger">{error}</p>}
         <BigButton type="submit" disabled={busy || name.trim().length < 3}>
           Continue

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins, Raleway, Noto_Sans_Thai } from "next/font/google";
+import { Poppins, Raleway, Mali } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/lib/auth";
 import { ProgressProvider } from "@/lib/progress";
@@ -20,9 +20,9 @@ const raleway = Raleway({
   weight: ["700"],
 });
 
-const notoThai = Noto_Sans_Thai({
+const mali = Mali({
   variable: "--font-noto-thai",
-  subsets: ["thai"],
+  subsets: ["thai", "latin"],
   weight: ["400", "600", "700"],
 });
 
@@ -51,7 +51,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${poppins.variable} ${raleway.variable} ${notoThai.variable} h-full antialiased`}
+      className={`${poppins.variable} ${raleway.variable} ${mali.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: noFlashTheme }} />

@@ -9,7 +9,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { Level } from "./types";
+import { Gender, Level } from "./types";
 import { useAuth } from "./auth";
 import { loadProfile, rowToState, saveProgress, setUsername as dbSetUsername } from "./db";
 
@@ -32,6 +32,7 @@ export interface ReviewResult {
 
 export interface ProgressState {
   name: string | null;
+  gender: Gender;
   placed: boolean;
   level: Level;
   xp: number;
@@ -53,6 +54,7 @@ const DAY_MS = 86_400_000;
 
 const initialState: ProgressState = {
   name: null,
+  gender: "female", // default; users can choose, or opt out (stays female)
   placed: false,
   level: 1,
   xp: 0,
@@ -89,6 +91,7 @@ interface ProgressContextValue {
   synced: boolean;
   username: string | null;
   setName: (name: string) => void;
+  setGender: (gender: Gender) => void;
   setPlacement: (level: Level) => void;
   completeLesson: (lessonId: string, xp: number) => void;
   recordReviews: (results: ReviewResult[]) => void;
@@ -187,6 +190,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     setState((s) => ({ ...s, name: name.trim() || s.name }));
   }, []);
 
+  const setGender = useCallback((gender: Gender) => {
+    setState((s) => ({ ...s, gender }));
+  }, []);
+
   const setPlacement = useCallback((level: Level) => {
     setState((s) => ({ ...s, level, placed: true }));
   }, []);
@@ -264,13 +271,14 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
       synced,
       username,
       setName,
+      setGender,
       setPlacement,
       completeLesson,
       recordReviews,
       updateUsername,
       reset,
     }),
-    [state, hydrated, synced, username, setName, setPlacement, completeLesson, recordReviews, updateUsername, reset],
+    [state, hydrated, synced, username, setName, setGender, setPlacement, completeLesson, recordReviews, updateUsername, reset],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

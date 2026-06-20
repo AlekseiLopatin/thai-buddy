@@ -8,6 +8,7 @@ export interface ProfileRow {
   username: string | null;
   display_name: string | null;
   avatar_emoji: string | null;
+  gender: "female" | "male" | null;
   placed: boolean;
   level: number;
   xp: number;
@@ -33,6 +34,7 @@ export function stateToRow(userId: string, s: ProgressState): Partial<ProfileRow
   return {
     id: userId,
     display_name: s.name,
+    gender: s.gender,
     placed: s.placed,
     level: s.level,
     xp: s.xp,
@@ -49,6 +51,7 @@ export function stateToRow(userId: string, s: ProgressState): Partial<ProfileRow
 export function rowToState(row: ProfileRow): Partial<ProgressState> {
   return {
     name: row.display_name,
+    gender: row.gender ?? "female",
     placed: row.placed,
     level: (row.level as Level) ?? 1,
     xp: row.xp ?? 0,

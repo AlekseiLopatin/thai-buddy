@@ -7,11 +7,12 @@ import BottomNav from "@/components/BottomNav";
 import { useProgress } from "@/lib/progress";
 import { useAuth } from "@/lib/auth";
 import ThemeToggle from "@/components/ThemeToggle";
+import GenderChoice from "@/components/GenderChoice";
 import { ALL_LESSONS } from "@/data/curriculum";
 import { LEVELS } from "@/lib/types";
 
 export default function Profile() {
-  const { state, hydrated, reset, username } = useProgress();
+  const { state, hydrated, reset, username, setGender } = useProgress();
   const { configured, user, signOut } = useAuth();
   const router = useRouter();
 
@@ -49,9 +50,15 @@ export default function Profile() {
         </div>
 
         {/* appearance */}
-        <div className="mb-6 flex items-center justify-between rounded-2xl border-2 border-line bg-surface px-4 py-3">
+        <div className="mb-4 flex items-center justify-between rounded-2xl border-2 border-line bg-surface px-4 py-3">
           <span className="font-bold">Appearance</span>
           <ThemeToggle />
+        </div>
+
+        {/* polite ending */}
+        <div className="mb-6 rounded-2xl border-2 border-line bg-surface px-4 py-3">
+          <p className="mb-2 font-bold">Polite ending</p>
+          <GenderChoice value={state.gender} onChange={setGender} showNote={false} />
         </div>
 
         <div className="flex flex-col gap-3">

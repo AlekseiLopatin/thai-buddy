@@ -95,7 +95,7 @@ h3 {
 
 /* Thai script renders with a dedicated font for clean glyphs */
 .font-thai {
-  font-family: var(--font-noto-thai), "Noto Sans Thai", sans-serif;
+  font-family: var(--font-noto-thai), "Mali", sans-serif;
 }
 
 /* Chunky 3D button press effect used across the app */
