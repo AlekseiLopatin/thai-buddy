@@ -53,9 +53,7 @@ function LocalHome() {
           <BigButton type="submit" disabled={!draft.trim()}>
             Get started
           </BigButton>
-          <p className="text-xs text-muted">
-            Running in local mode. Add Supabase keys to enable accounts &amp; friends.
-          </p>
+          <p className="text-xs text-muted">Your progress is saved on this device.</p>
         </form>
       </Splash>
     );
